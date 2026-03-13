@@ -1,13 +1,14 @@
-const {test} = require('../fixtures/getTokenFixture');
-const {expect} = require('@playwright/test');
+const {test,expect} = require('../fixtures/authenticatedPage');
 
-test("Direct Login with getToken Fixture @TOKENFIX" , async({getToken, browser})=>{
-    const endPoint = "https://rahulshettyacademy.com/client/";
-    const context = await browser.newContext();
-    await context.addInitScript(val=>{
-        window.localStorage.setItem('token',val)},
-        getToken);
-    const page = await context.newPage();
-    await page.goto(endPoint);
-    await expect(page.getByRole('navigation')).toBeVisible();
+/***
+ * Using custom fixture to get authenticated Page.
+ * 
+ * Another method can also be used to get only the token and create page in the test spec.
+ */
+
+test("Direct Login with getToken Fixture @TOKENFIX" , async({authenticatedPage})=>{
+    const LOGINURL = "https://rahulshettyacademy.com/client/";
+    
+    await authenticatedPage.goto(LOGINURL);
+    await expect(authenticatedPage.getByRole('navigation')).toBeVisible();
 });
