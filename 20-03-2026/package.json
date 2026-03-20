@@ -1,0 +1,21 @@
+{
+  "name": "20-03-2026",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "all" : "npx playwright test",
+    "dialog" : "npx playwright test --grep @DIA",
+    "child" : "npx playwright test --grep @CHILD",
+    "auth" : "npx playwright test --grep @AUTH",
+    "direct" : "npx playwright test --grep @DIR"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  }
+}
