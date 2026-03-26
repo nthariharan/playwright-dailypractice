@@ -34,6 +34,17 @@ exports.test = base.test.extend({
         const json_orderResp = await orderResponse.json();
         expect(json_orderResp.message).toMatch(/order placed success/i);
         await use(json_orderResp.orders[0]);
+    },
+
+    authPage : 
+    /*** @param {{ token : string, context : import('@playwright/test').BrowserContext}} */
+    async({token,context},use)=>{
+        await context.addInitScript((value)=> window.localStorage.setItem('token',value),token);
+        const page = await context.newPage();
+        await use(page);
+
+        //cleanup
+        await context.close();
     }
 });
 

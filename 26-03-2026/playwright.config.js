@@ -20,7 +20,8 @@ export default defineConfig({
           args:['--start-maximized']
         },
         trace : 'on',
-        screenshot : 'on'
+        screenshot : 'on',
+        headless: false
       }
     }
   ]
