@@ -15,6 +15,6 @@ export default defineConfig({
     browserName: 'chromium',
     trace: 'on',
     actionTimeout: 10*1000,
-    headless : false
+    headless : true
   }
 });

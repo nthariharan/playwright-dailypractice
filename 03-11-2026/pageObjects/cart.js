@@ -18,23 +18,26 @@ class cart {
         this.btnPlaceOrder = this.page.getByText("Place Order");
     }
 
-    async cartCheckOut() {
-        await this.cart_items.first().waitFor();
-        console.log(await this.cart_items.locator('h3').textContent());
-        if (await this.cart_items.locator('h3').textContent() === this.tgtProduct) {
-            console.log("product matches");
-        }
+    async cartCheckOut(tgtProduct, shipCountry) {
         await this.btn_checkout.click();
 
         await this.paymentInfo.waitFor();
+
+        //await expect(this.paymentUserName).toHaveText(process.env.USER_ID);
+        
+    }
+
+    async verifyPaymentUserName(){
         await expect(this.paymentUserName).toHaveText(process.env.USER_ID);
+    }
+
+    async enterShipmentCountry(shipCountry){
         await this.txtShipCountry.pressSequentially('india');
         await expect(this.countrySearchResult).toBeVisible();
-        await this.countrySearchResult.filter({ hasText: this.shipCountry }).click();
+        await this.countrySearchResult.filter({ hasText: shipCountry }).click();
 
         await expect(this.btnPlaceOrder).toBeVisible();
         await this.btnPlaceOrder.click();
-
 
     }
 

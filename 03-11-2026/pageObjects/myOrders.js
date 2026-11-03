@@ -12,7 +12,7 @@ class myOrders {
         this.txtOrderSummary = page.getByText(' order summary ');
     }
 
-    async viewMyOrder() {
+    async viewMyOrder(OrderID) {
         await expect(this.yourOrders).toBeVisible();
 
         await this.orderRows.first().waitFor();
@@ -20,7 +20,7 @@ class myOrders {
         console.log("Order count =>", orderCount);
         for (let i = 0; i < orderCount; i++) {
             console.log(await this.orderRows.nth(i).locator('th').textContent());
-            if (this.orderRows.nth(i).getByText(this.OrderId)) {
+            if (this.orderRows.nth(i).getByText(OrderID)) {
                 console.log("in if loop");
                 await this.orderRows.nth(i).getByRole("button", { name: "View" }).click();
                 break;
