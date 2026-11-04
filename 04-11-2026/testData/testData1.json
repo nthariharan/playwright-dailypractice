@@ -1,0 +1,20 @@
+[
+    {
+        "tgtProduct": "ZARA COAT 3",
+        "inputCountry": "india",
+        "shipCountry": " India",
+        "baseURL": "https://rahulshettyacademy.com/client/"
+    },
+    {
+        "tgtProduct": "ADIDAS ORIGINAL",
+        "inputCountry": "germany",
+        "shipCountry": " Germany",
+        "baseURL": "https://rahulshettyacademy.com/client/"
+    },
+    {
+        "tgtProduct": "iphone 13 pro",
+        "inputCountry": "antarctica",
+        "shipCountry": " Antarctica",
+        "baseURL": "https://rahulshettyacademy.com/client/"
+    }
+]
